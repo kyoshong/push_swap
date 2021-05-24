@@ -25,13 +25,10 @@ int main(int argc, char const *argv[])
 	{
 		cin >> val;
 		a.push_back(val);
-	}
-	//mid = mid_sort(num, mid);
-	sort(a.begin(), a.end());
-	for (int i = 0; i < num; i++)
-	{
 		arr[i] = a[i];
 	}
+	//mid = mid_sort(num, mid);
+	sort(arr.begin(), arr.end());
 	mid = a[num/2];
 	for (int i = 0; i < num; i++)
 	{
