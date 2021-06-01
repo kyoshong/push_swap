@@ -1,19 +1,21 @@
 #include "push_swap.hpp"
 
+int		sort_a(int start, int end)
+{
+	
+}
 void	div_pivot(int end)
 {
 	int limit = a[end];
 	while (b.size() <= end + 1)
 	{
-		if (a.back() >= limit)
-		{
+		if (a.back() >= limit && !b.empty())
 			rotate_a();
-		}
-
 		else
 			push_b();
 	}
 }
+
 
 int main()
 {
@@ -31,7 +33,8 @@ int main()
 	div_pivot(num/3);
 	div_pivot(num/3 * 2);
 
-	while (1)
+
+	while (!b.empty())
 	{
 		if (a.back() != )
 			swap_a();
