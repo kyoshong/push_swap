@@ -1,21 +1,21 @@
 #include "push_swap.hpp"
 
-int	mid_sort(int num, int mid)
+void	div_pivot(int end)
 {
-	int num;
-	sort(a.begin(), a.end());
-	mid = a[num/2];
-	for (int i = 0; i < num; i++)
+	int limit = a[end];
+	while (b.size() <= end + 1)
 	{
-		if (a.back() > mid)
-			push_b();
-		else
+		if (a.back() >= limit)
+		{
 			rotate_a();
+		}
+
+		else
+			push_b();
 	}
-	return mid;
 }
 
-int main(int argc, char const *argv[])
+int main()
 {
 	int num;
 	cin >> num;
@@ -27,17 +27,13 @@ int main(int argc, char const *argv[])
 		a.push_back(val);
 		arr[i] = a[i];
 	}
-	//mid = mid_sort(num, mid);
-	sort(arr.begin(), arr.end());
-	mid = a[num/2];
-	for (int i = 0; i < num; i++)
-	{
-		if (a.at(a.size() - 1) > mid)
-			rotate_a();
-	}
+	sort(arr[0], arr[num - 1]);
+	div_pivot(num/3);
+	div_pivot(num/3 * 2);
+
 	while (1)
 	{
-		if (a.back() != mid)
+		if (a.back() != )
 			swap_a();
 		else if (a.at(a.back() - 1) != arr[mid-1])
 			rotate_a();
