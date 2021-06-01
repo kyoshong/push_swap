@@ -4,6 +4,7 @@ int		sort_a(int start, int end)
 {
 	
 }
+
 void	div_pivot(int end)
 {
 	int limit = a[end];
@@ -15,7 +16,6 @@ void	div_pivot(int end)
 			push_b();
 	}
 }
-
 
 int main()
 {
@@ -33,16 +33,10 @@ int main()
 	div_pivot(num/3);
 	div_pivot(num/3 * 2);
 
-
 	while (!b.empty())
 	{
-		if (a.back() != )
-			swap_a();
-		else if (a.at(a.back() - 1) != arr[mid-1])
-			rotate_a();
-		else
-			break ;
+		sort_a
 	}
-	
+	printf("%d", cnt);
 	return 0;
 }
