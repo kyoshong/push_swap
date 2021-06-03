@@ -2,7 +2,7 @@
 
 int		sort_a(int start, int end)
 {
-	
+
 }
 
 void	div_pivot(int end)
@@ -35,7 +35,7 @@ int main()
 
 	while (!b.empty())
 	{
-		sort_a
+		sort_a();
 	}
 	printf("%d", cnt);
 	return 0;
