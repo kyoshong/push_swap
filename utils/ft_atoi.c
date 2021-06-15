@@ -1,39 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.c                                            :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 18:17:33 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/03 18:18:53 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/15 19:09:56 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
-int	ft_strlen(char const *str)
+int		ft_strlen(char *str)
 {
 	int	i;
 
 	i = 0;
 	while (str[i])
-	{
 		i++;
-	}
 	return (i);
 }
 
 int		space_check(char b)
 {
-	if (b == ' ' || b == '\n' || b == '\r' || b == '\t' || b == '\f')
-		return (1);
-	else if (b == '\v')
+	if (b == ' ' || b == '\n' || b == '\r' || b == '\t' || b == '\f'
+		|| b == '\v')
 		return (1);
 	return (0);
 }
 
-int		ft_atoi(const char *str)
+int		ft_atoi(char *str)
 {
 	long	i;
 	long	minus;
@@ -46,15 +43,17 @@ int		ft_atoi(const char *str)
 		i++;
 	if (str[i] == '-')
 		minus = -1;
-	if ((str[i] == '-') || (str[i] == '+'))
+	if (str[i] == '-' || str[i] == '+')
 		i++;
-	while ((str[i] >= '0' && (str[i] <= '9') && str[i] != '\0'))
+	if (str[i] < '0' || str[i] > '9' || str[i] == '\0')
+		print_error("Error\n 숫자가 아닙니다요");
+	while (str[i] >= '0' && str[i] <= '9' && str[i] != '\0')
 	{
-		num = (num * 10) + ((str[i] - '0'));
+		num = (num * 10) + (str[i] - '0');
 		if (num > 2147483647 && minus == 1)
-			return (-1);
+			print_error("Error\n 범위를 벗어났어요");
 		if (num > 2147483648 && minus == -1)
-			return (0);
+			print_error("Error\n 범위를 벗어났어요");
 		i++;
 	}
 	return (num * minus);

@@ -6,12 +6,11 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:49:01 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/04 17:12:50 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/15 19:08:23 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
+#include "../headers/push_swap.h"
 
 int		sort_a(int start, int end)
 {
@@ -29,46 +28,53 @@ void	div_pivot(int end)
 			push_b();
 	}
 }
-
-int	*get_list(int argc, char **argv)
+void		make_list(char **argv, int len, int argc)
 {
+	char *combine_argv;
 	int i;
-	
+	int j;
+	int z;
+
+	ft_isnumber(argv);
+	if (!(combine_argv = (char *)malloc(sizeof(char) * (len + 1))))
+		return ;
 	i = 1;
-	while (argc > i)
+	z = 0;
+	while (i < argc)
 	{
-		ft_split()
-		ft_atoi(argv[i]);
+		j = 0;
+		while (argv[i][j])
+			combine_argv[z++] = argv[i][j++];
+		combine_argv[z++] = ' ';
 		i++;
 	}
-	retrun ();
+	ft_split_atoi(combine_argv, ' ');
 }
 
-int main(int argc, char const *argv[])
+void		get_list(int argc, char **argv)
 {
+	int i;
+	int j;
+	int len;
 	
-	if (argc < 2)
-		write(1, "Error\n", 6);
-	else
+	i = 1;
+	len = 0;
+	while (argc > i)
 	{
-		get_list(argc, argv);
+		j = 0;
+		while (argv[i][j])
+			j++;
+		len += j + 1;
+		i++;
 	}
-	return (0);
-	// int val;
-	// for (int i = 0; i < num; i++)
-	// {
-	// 	scanf("%d", &val);
-	// 	a.push_back(val);
-	// 	arr[i] = a[i];
-	// }
-	// sort(arr[0], arr[num - 1]);
-	// div_pivot(num/3);
-	// div_pivot(num/3 * 2);
-
-	// while (!b.empty())
-	// {
-	// 	sort_a();
-	// }
-	// printf("%d", cnt);
-	// return 0;
+	make_list(argv, len, argc);
 }
+
+void	push_swap(int argc, char **argv)
+{
+	int *arr;
+	
+	arr = get_list(argc, argv);
+}
+
+

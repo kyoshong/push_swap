@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:48:51 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/03 21:16:25 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/15 19:17:54 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,13 @@ typedef	struct	s_dq
 	int	back;
 }				t_dq;
 
+int		ft_strlen(char *str);
+int		space_check(char b);
+int		ft_atoi(char *str);
+int		*ft_split_atoi(char const *s, char c);
+t_dq	*new_dq(int *val);
+t_dq	*init_dq(int size, int *val);
+void	ft_isnumber(char **arg);
+void	print_error(char *error);
 
 #endif
