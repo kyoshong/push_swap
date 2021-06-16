@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:48:51 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/16 23:15:20 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/17 00:53:08 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_dq	*new_dq(int *val);
 t_dq	*init_dq(int size, int *val);
 
 void	ft_isnumber(char **arg, int argc);
-void	print_error_free(char *error, char **tem_str);
+void	print_error_free(char *error, char *tem_str);
 void	print_error(char *error);
 
 void	quick_sort(int *arr, int l, int r);

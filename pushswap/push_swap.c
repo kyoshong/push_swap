@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:49:01 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/16 23:05:23 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/17 00:27:50 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		*make_list(char **argv, int len, int argc)
 	int i;
 	int j;
 	int z;
-
+	
 	ft_isnumber(argv, argc);
 	if (!(combine_argv = (char *)malloc(sizeof(char) * (len + 1))))
 		return (NULL);
@@ -70,9 +70,8 @@ void	push_swap(int argc, char **argv)
 
 	arr = get_list(argc, argv);
 	len = get_len(arr);
-	quick_sort(arr, 0, len);
+	quick_sort(arr, 0, len - 1);
 	for (int i = 0; i < len; i++)
-	{
 		printf("arr[%d] : %d\n",i, arr[i]);
-	}
+	free(arr);
 }

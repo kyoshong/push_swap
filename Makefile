@@ -6,7 +6,8 @@ SOURCE = pushswap/push_swap.c \
 		utils/ft_atoi.c \
 		utils/ft_split.c \
 		utils/exception.c
-MAIN = push_swap/main.c
+LIB = -L. -lpushswap
+MAIN = pushswap/main.c
 OUT = push_swap
 OBJECT = push_swap.o \
 		quick_sort.o \
@@ -27,6 +28,6 @@ fclean: clean
 	@rm -f $(OUT)
 re:	fclean all
 gcc: all
-	gcc $(MAIN) $(CFLAGS) -o $(OUT)
+	gcc $(MAIN) $(CFLAGS) $(LIB) -o $(OUT)
 
 .PHONY: all clean fclean re

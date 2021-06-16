@@ -63,6 +63,7 @@ int		*split2(char *s, char c, int word_num)
 		free(tem_str);
 		i++;
 	}
+	free(s);
 	return (numarr);
 }
 
@@ -74,7 +75,6 @@ int		*ft_split_atoi(char *s, char c)
 	if (s == 0)
 		return (NULL);
 	word_num = word_count(s, c);
-
 	numarr = split2(s, c, word_num);
 	return (numarr);
 }

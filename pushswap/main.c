@@ -6,7 +6,7 @@ void free_all()
 	
 }
 
-int main(int argc, char const *argv[])
+int main(int argc, char *argv[])
 {
 	
 	if (argc < 2)
@@ -16,6 +16,8 @@ int main(int argc, char const *argv[])
 		push_swap(argc, argv);
 		//free_all();
 	}
+	
+	system("leaks push_swap > leaks_result_temp; cat leaks_result_temp | grep leaked && rm -rf leaks_result_temp");
 	return (0);
 	// int val;
 	// for (int i = 0; i < num; i++)
