@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 14:35:36 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/15 17:55:41 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/16 23:17:36 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,13 @@ void		ft_isnumber(char **arg, int argc)
 
 void	print_error(char *error)
 {
-	wirte(1, error, ft_strlen(error));
+	write(1, error, ft_strlen(error));
+	exit(0);
+}
+
+void	print_error_free(char *error, char **tem_str)
+{
+	write(1, error, ft_strlen(error));
+	free(tem_str);
 	exit(0);
 }

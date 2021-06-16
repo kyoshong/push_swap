@@ -6,16 +6,28 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:49:30 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/03 23:21:06 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/16 22:17:44 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
+void	div_pivot(int end)
+{
+	int limit = a[end];
+	while (b.size() <= end + 1)
+	{
+		if (a.back() >= limit && !b.empty())
+			rotate_a();
+		else
+			push_b();
+	}
+}
+
 t_dq	*new_dq(int *val)
 {
 	t_dq	*n_dq;
-	if (!(n_dq = (t_dq *)malloc(sizeof(*n_dq))))
+	if (!(n_dq = (t_dq *)malloc(sizeof(*n_dq) * )))
 	return (NULL);
 	
 	return (n_dq);

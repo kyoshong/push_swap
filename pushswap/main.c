@@ -14,7 +14,7 @@ int main(int argc, char const *argv[])
 	else
 	{
 		push_swap(argc, argv);
-		free_all();
+		//free_all();
 	}
 	return (0);
 	// int val;

@@ -22,10 +22,10 @@ static int	word_count(char const *s, char c)
 	return (cnt);
 }
 
-static char	*word_make(char const *s, int j, int word_len)
+static char	*word_make(char *s, int j, int word_len)
 {
 	int		i;
-	char *word;
+	char	*word;
 
 	i = 0;
 	if (!(word = (char *)malloc(sizeof(char) * (word_len + 1))))
@@ -36,17 +36,20 @@ static char	*word_make(char const *s, int j, int word_len)
 	return (word);
 }
 
-void	split2(char const *s, char c, int word_num, int *numarr)
+int		*split2(char *s, char c, int word_num)
 {
 	int		i;
 	int		j;
 	int		word_len;
 	char	*tem_str;
+	int		*numarr;
 
 	i = 0;
+	j = 0;
+	if (!(numarr = (int *)malloc(sizeof(int) * (word_num + 1))))
+		return (NULL);
 	while (s[j] && i < word_num)
 	{
-		j = 0;
 		word_len = 0;
 		while (s[j] && s[j] == c)
 			j++;
@@ -60,9 +63,10 @@ void	split2(char const *s, char c, int word_num, int *numarr)
 		free(tem_str);
 		i++;
 	}
+	return (numarr);
 }
 
-int		*ft_split_atoi(char const *s, char c)
+int		*ft_split_atoi(char *s, char c)
 {
 	int		word_num;
 	int		*numarr;
@@ -70,8 +74,7 @@ int		*ft_split_atoi(char const *s, char c)
 	if (s == 0)
 		return (NULL);
 	word_num = word_count(s, c);
-	if (!(numarr = (int *)malloc(sizeof(int) * (word_num + 1))))
-		return (NULL);
-	split2(s, c, word_num, &numarr);
+
+	numarr = split2(s, c, word_num);
 	return (numarr);
 }
