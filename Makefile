@@ -2,6 +2,7 @@ NAME = libpushswap.a
 CFLAGS = -Wall -Wextra -Werror
 LEAKLAGS = -g3 -fsanitize=address
 SOURCE = pushswap/push_swap.c \
+		pushswap/pre_push_swap.c \
 		pushswap/quick_sort.c \
 		utils/ft_atoi.c \
 		utils/ft_split.c \

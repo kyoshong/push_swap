@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 18:07:18 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/15 14:35:54 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/17 15:51:19 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	swap_a()
 {
 	printf("sa\n");
-	int tem = a.back();
+	int tem = a->back;
 	a.back() = 	a.at(a.back() - 1);
 	a.at(a.back() - 1) = tem;
 	cnt++;

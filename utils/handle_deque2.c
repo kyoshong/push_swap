@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   handle_deque2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyospark <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/17 15:27:05 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/17 15:27:07 by hyospark         ###   ########.fr       */
+/*   Created: 2021/06/17 15:26:41 by hyospark          #+#    #+#             */
+/*   Updated: 2021/06/17 15:50:51 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../headers/push_swap.h"
 
-int main(int argc, char *argv[])
+void	pop_front_dq()
+{
+
+}
+
+void	back_dq()
 {
 	
-	if (argc < 2)
-		write(1, "Error\n", 6);
-	else
-	{
-		push_swap(argc, argv);
-		//free_all();
-	}
-	system("leaks push_swap > leaks_result_temp; cat leaks_result_temp | grep leaked && rm -rf leaks_result_temp");
-	return (0);
+}
+
+void	at_dq()
+{
+	
 }

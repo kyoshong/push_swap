@@ -6,46 +6,54 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:49:30 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/16 22:17:44 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/17 15:49:46 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
-void	div_pivot(int end)
+void	init_a(int *val, int size)
 {
-	int limit = a[end];
-	while (b.size() <= end + 1)
-	{
-		if (a.back() >= limit && !b.empty())
-			rotate_a();
-		else
-			push_b();
-	}
-}
-
-t_dq	*new_dq(int *val)
-{
-	t_dq	*n_dq;
-	if (!(n_dq = (t_dq *)malloc(sizeof(*n_dq) * )))
-	return (NULL);
-	
-	return (n_dq);
-}
-
-t_dq	*init_dq(int size, int *val)
-{
-	t_dq	*dq;
-	t_dq	*tem;
+	int		*arr;
 	int		i;
 
+	if (!(a = (t_dq *)malloc(sizeof(*a))))
+		return (NULL);
+	if (!(arr = (int *)malloc(sizeof(int) * (size + 1))))
+	{
+		free(a);
+		return (NULL);
+	}
 	i = 0;
-	dq = NULL;
 	while (i < size)
 	{
-		
+		arr[i] = val[size - i - 1];
+		i++;
 	}
-	return (dq);
+	a->arr = arr;
+	a->front = size;
+	a->back = 0;
+	return (a);
+}
+
+void	init_b(int size)
+{
+	int		*arr;
+	int		i;
+
+	if (!(b = (t_dq *)malloc(sizeof(*b))))
+		return (NULL);
+	if (!(arr = (int *)malloc(sizeof(int) * (size + 1))))
+	{
+		free(b);
+		return (NULL);
+	}
+	i = 0;
+	while (i < size + 1)
+		arr[i++] = NULL;
+	b->arr = arr;
+	b->front = size;
+	b->back = 0;
 }
 
 t_dq	empty_dq()
@@ -54,21 +62,6 @@ t_dq	empty_dq()
 }
 
 t_dq	push_back_dq()
-{
-	
-}
-
-t_dq	pop_front_dq()
-{
-
-}
-
-t_dq	back_dq()
-{
-	
-}
-
-t_dq	at_dq()
 {
 	
 }
