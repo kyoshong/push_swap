@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:48:51 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/17 15:50:07 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/18 12:04:57 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-
 typedef	struct	s_dq
 {
 	int	*arr;
-	int	front;
-	int	back;
+	int	top;
+	int	bottom;
 }				t_dq;
 
 t_dq	*a;
@@ -40,6 +39,9 @@ int		*ft_split_atoi(char *s, char c);
 
 void	init_a(int *val, int size);
 void	init_b(int size);
+int		empty_dq(t_dq *dq);
+void	push_back_dq(int val, t_dq *dq);
+
 
 void	ft_isnumber(char **arg, int argc);
 void	print_error_free(char *error, char *tem_str);
@@ -48,4 +50,5 @@ void	print_error(char *error);
 void	quick_sort(int *arr, int l, int r);
 int		partition(int *arr, int l, int r);
 
+void	push_swap(int *arr, int len);
 #endif

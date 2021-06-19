@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:26:53 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/17 15:47:18 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/18 11:14:16 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ void	div_pivot(int end)
 	// return 0;
 }
 
-void	push_swap()
+void	push_swap(int *arr, int len)
 {
-
+	div_pivot();
+	
 }
