@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:49:01 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/18 11:13:59 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/19 15:42:32 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,6 @@ void	pre_push_swap(int argc, char **argv)
 	init_a(arr, len);
 	init_b(len);
 	quick_sort(arr, 0, len - 1);
-	// for (int i = 0; i < len; i++)
-	// 	printf("arr[%d] : %d\n",i, arr[i]);
 	push_swap(arr, len);
 	free(arr);
 }

@@ -6,21 +6,32 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:26:53 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/18 11:14:16 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/21 23:39:51 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
-void	div_pivot(int end)
+void	div_pivot(int *arr, int len)
 {
-	int limit = a[end];
-	while (b.size() <= end + 1)
+	int i;
+	int p1;
+	int p2;
+	
+	p1 = arr[len - len/3];
+	p2 = arr[len - (len/3 * 2)];
+	i = 0;
+	while (i < len)
 	{
-		if (a.back() >= limit && !b.empty())
+		if (top_dq(a) > p1) 
 			rotate_a();
-		else
+		else if (top_dq(a) <= p1 && top_dq(a) > p2)
 			push_b();
+		else if (top_dq(a) <= p2)
+		{
+			push_b();
+			if ()
+		}
 	}
 	// int val;
 	// for (int i = 0; i < num; i++)
@@ -43,6 +54,7 @@ void	div_pivot(int end)
 
 void	push_swap(int *arr, int len)
 {
-	div_pivot();
+	count = 0;
+	div_pivot(arr, len);
 	
 }
