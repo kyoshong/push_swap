@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyospark <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:27:05 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/17 15:27:07 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/23 14:37:14 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 		write(1, "Error\n", 6);
 	else
 	{
-		push_swap(argc, argv);
+		pre_push_swap(argc, argv);
 		//free_all();
 	}
 	system("leaks push_swap > leaks_result_temp; cat leaks_result_temp | grep leaked && rm -rf leaks_result_temp");

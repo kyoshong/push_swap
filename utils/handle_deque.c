@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:49:30 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/21 14:43:45 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/23 23:12:59 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,8 @@ int		empty_dq(t_dq *dq)
 
 void	push_top_dq(int val, t_dq *dq)
 {
-	if (empty_dq(dq))
-		dq->top = 0;
-	dq->arr[dq->top + 1] = val;
 	dq->top = dq->top + 1;
+	dq->arr[dq->top] = val;
 }
 
 void	push_bottom_dq(int val, t_dq *dq)
@@ -77,13 +75,18 @@ void	push_bottom_dq(int val, t_dq *dq)
 	int i;
 
 	if (empty_dq(dq))
-		dq->top = 0;
-	i = dq->bottom;
-	while (dq->top >= i)
 	{
-		dq->arr[i + 1] = dq->arr[i];
-		i++;
+		push_top_dq(val, dq);
 	}
-	dq->arr[dq->bottom] = val;
-	dq->top = dq->top + 1;
+	else
+	{
+		dq->top = dq->top + 1;
+		i = dq->bottom;
+		while (dq->top > i)
+		{
+			dq->arr[i + 1] = dq->arr[i];
+			i++;
+		}
+		dq->arr[dq->bottom] = val;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 18:07:18 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/21 20:38:00 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/23 14:26:15 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	push_a()
 	wirte(1, "pa\n", 3);
 	if (!empty_dq(b))
 	{
-		push_dq(top_dq(b), a);
+		push_top_dq(top_dq(b), a);
 		top_pop_dq(b);
 		count++;
 	}
@@ -58,7 +58,7 @@ void	push_b()
 	wirte(1, "pb\n", 3);
 	if (!empty_dq(a))
 	{
-		push_dq(top_dq(a), b);
+		push_top_dq(top_dq(a), b);
 		top_pop_dq(a);
 		count++;
 	}

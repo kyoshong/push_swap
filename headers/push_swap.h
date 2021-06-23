@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:48:51 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/21 20:39:14 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/23 15:34:53 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,21 @@ t_dq	*a;
 t_dq	*b;
 int		count;
 
+//main
+int		*make_list(char **argv, int len, int argc);
+
+//pre_push_swap
 int		*make_list(char **argv, int len, int argc);
 int		*get_list(int argc, char **argv);
 void	pre_push_swap(int argc, char **argv);
 void	div_pivot(int *arr, int len);
 
-int		ft_strlen(char *str);
-int		space_check(char b);
-int		ft_atoi(char *str);
-int		*ft_split_atoi(char *s, char c);
+//handle
+//quick_sort
+void	quick_sort(int *arr, int l, int r);
+int		partition(int *arr, int l, int r);
 
+//push_swap
 void	init_a(int *val, int size);
 void	init_b(int size);
 int		empty_dq(t_dq *dq);
@@ -50,15 +55,25 @@ void	top_pop_dq(t_dq *dq);
 void	bottom_pop_dq(t_dq *dq);
 int		top_dq(t_dq *dq);
 
+int		find_short(int *arr, int limit, int val, int val2);
+int		find_val_bottom(int *arr, int val, int val2, int next_val);
+
 void	ft_isnumber(char **arg, int argc);
 void	print_error_free(char *error, char *tem_str);
 void	print_error(char *error);
 
-void	quick_sort(int *arr, int l, int r);
-int		partition(int *arr, int l, int r);
+//split_atoi
+int		ft_strlen(char *str);
+int		space_check(char b);
+int		ft_atoi(char *str);
+int		*ft_split_atoi(char *s, char c);
+
 
 void	push_swap(int *arr, int len);
+int		find_one_val(int *arr, int val);
 
+
+// commands
 void	swap_a();
 void	swap_b();
 void	ss();
