@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 18:07:18 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/23 14:26:15 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/24 02:34:01 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	swap_a()
 	int tem = a->top;
 	a->arr[a->top] = a->arr[size_dq(a) - 1];
 	a->arr[size_dq(a) - 1] = tem;
-	count++;
+	total_count++;
 }
 
 //스택 b의 가장 위에 있는 두 원소(혹은 첫 번쨰 원소와 두 번째 원소)의 위치를 서로 바꾼다.
@@ -29,7 +29,7 @@ void	swap_b()
 	int tem = b->top;
 	b->arr[b->top] = b->arr[size_dq(b) - 1];
 	b->arr[size_dq(b) - 1] = tem;
-	count++;
+	total_count++;
 }
 
 //sa와 sb를 동시에 실행한다.
@@ -38,7 +38,7 @@ void	ss()
 	wirte(1, "ss\n", 3);
 	swap_a();
 	swap_b();
-	count++;
+	total_count++;
 }
 // 스택 b에서 가장 위(탑)에 있는 원소를 가져와서, 스택 a의 맨 위(탑)에 넣는다. 
 void	push_a()
@@ -48,7 +48,7 @@ void	push_a()
 	{
 		push_top_dq(top_dq(b), a);
 		top_pop_dq(b);
-		count++;
+		total_count++;
 	}
 }
 
@@ -60,7 +60,7 @@ void	push_b()
 	{
 		push_top_dq(top_dq(a), b);
 		top_pop_dq(a);
-		count++;
+		total_count++;
 	}
 }
 
@@ -72,7 +72,7 @@ void	rotate_a()
 	{
 		push_bottom_dq(bottom_dq(a), a);
 		top_pop_dq(a);
-		count++;
+		total_count++;
 	}
 }
 
@@ -84,7 +84,7 @@ void	rotate_b()
 	{
 		push_bottom_dq(bottom_dq(b), b);
 		top_pop_dq(b);
-		count++;
+		total_count++;
 	}
 }
 
@@ -94,7 +94,7 @@ void	rr()
 	wirte(1, "rr\n", 3);
 	rotate_a();
 	rotate_b();
-	count++;
+	total_count++;
 }
 
 //스택 a의 모든 원소들을 아래로 1 인덱스 만큼 내린다. 마지막 원소(바텀)는 첫 번째 원소(탑)가 된다.
@@ -105,7 +105,7 @@ void	rev_rotate_a()
 	{
 		push_top_dq(bottom_dq(a), a);
 		bottom_pop_dq(a);
-		count++;
+		total_count++;
 	}
 }
 
@@ -117,7 +117,7 @@ void	rev_rotate_b()
 	{
 		push_top_dq(bottom_dq(b), b);
 		bottom_pop_dq(b);
-		count++;
+		total_count++;
 	}
 }
 
@@ -127,6 +127,6 @@ void	rrr()
 	wirte(1, "rrr\n", 4);
 	rev_rotate_a();
 	rev_rotate_b();
-	count++;
+	total_count++;
 }
 

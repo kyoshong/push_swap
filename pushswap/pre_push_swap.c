@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:49:01 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/23 14:53:25 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/24 17:18:29 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,14 +66,13 @@ int		get_len(int *arr)
 
 void	pre_push_swap(int argc, char **argv)
 {
-	int *arr;
 	int len;
 
-	arr = get_list(argc, argv);
-	len = get_len(arr);
-	init_a(arr, len);
+	s_arr = get_list(argc, argv);
+	len = get_len(s_arr);
+	init_a(s_arr, len);
 	init_b(len);
-	quick_sort(arr, 0, len - 1);
-	push_swap(arr, len);
-	free(arr);
+	quick_sort(s_arr, 0, len - 1);
+	push_swap(len);
+	free(s_arr);
 }
