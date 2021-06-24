@@ -6,32 +6,54 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:26:53 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/24 17:18:09 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/24 23:22:55 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
-void	 div_pivot_a(int len)
+void	div_pivot_a(int len)
 {
 	int i;
 	int p1;
 	int p2;
 	
 	p1 = s_arr[len - 1];
-	p2 = s_arr[(len / 9) * 7];
+	p2 = s_arr[len - (len / 6)];
 	i = 0;
 	while (i < len / 3)
 	{
-		if (top_dq(a) < p1 && top_dq(a) > p2)
-			push_b();
-		else if (top_dq(a) <= p2 && top_dq(a) != s_arr[(len / 3) * 2])
+		if (top_dq(a) == p1 && top_dq(a) == p2)
+			rotate_a();
+		else
 		{
 			push_b();
-			rotate_b();
+			if (top_dq(b) > p2)
+				rotate_b();
 		}
-		else
+		i++;
+	}
+}
+
+void	div_pivot_b(int len)
+{
+	int i;
+	int p1;
+	
+	p1 = s_arr[len];
+	i = 0;
+	while (i < len)
+	{
+		if (top_dq(a) >= p1)
 			rotate_a();
+		else
+		{
+			push_b();
+			if (top_dq(a) >= p1 && top_dq(b) >= (p1 / 2))
+				rr();
+			else if (top_dq(b) >= (p1 / 2))
+				rotate_b();
+		}
 		i++;
 	}
 }
@@ -40,27 +62,24 @@ void	div_pivot(int len)
 {
 	int i;
 	int p1;
-	int p2;
-	
-	p1 = s_arr[(len / 3) * 2];
-	p2 = s_arr[len / 3];
+
+	p1 = s_arr[len / 3];
 	i = 0;
 	while (i < len)
 	{
-		if (top_dq(a) >= p1) 
+		if (top_dq(a) >= p1)
 			rotate_a();
-		else if (top_dq(a) < p1 && top_dq(a) >= p2)
-			push_b();
-		else if (top_dq(a) < p2)
+		else
 		{
 			push_b();
-			if (top_dq(a) >= p1)
+			if (top_dq(a) >= p1 && top_dq(b) >= (p1 / 2))
 				rr();
-			else
+			else if (top_dq(b) >= (p1 / 2))
 				rotate_b();
 		}
 		i++;
 	}
+	div_pivot_b((len / 3) * 2);
 	div_pivot_a(len);
 }
 
@@ -71,18 +90,26 @@ void	sort_pivot2(int big, int small)
 
 	i = 0;
 	limit = small;
-	while (i = find_short(limit, big--, small++))
+	while (big >= small)
 	{
+		i = find_short(limit, big--, small++);
 		if (i == 1)
-			find_val_top(big, small, 0);
+			move_top_top(big, small, 0);
 		else if (i == 2)
-			find_val_bottom(big, small, 0);
+			move_top_top(big, small, 0);
 		else if (i == 3)
-			find_val_top(big - 1, small + 1, 1);
+			move_top_bottom(big - 1, small + 1, 1);
 		else if (i == 4)
-			find_val_bottom(big - 1, small + 1, 1);
+			move_top_bottom(big - 1, small + 1, 1);
+		else if (i == 5)
+			move_bottom_bottom(big - 1, small + 1, 1);
+		else if (i == 6)
+			move_bottom_bottom(big - 1, small + 1, 1);
+		else if (i == 7)
+			move_bottom_top(big - 1, small + 1, 1);
+		else if (i == 8)
+			move_bottom_top(big - 1, small + 1, 1);
 	}
-	
 }
 
 void	sort_pivot(int len)
