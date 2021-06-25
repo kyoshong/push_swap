@@ -6,34 +6,33 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:49:30 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/23 23:12:59 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/25 21:59:58 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
-void	init_a(int *val, int size)
+void	init_a(int size)
 {
 	int		*arr;
 	int		i;
 
 	if (!(a = (t_dq *)malloc(sizeof(*a))))
-		return (NULL);
+		return ;
 	if (!(arr = (int *)malloc(sizeof(int) * (size + 1))))
 	{
 		free(a);
-		return (NULL);
+		return ;
 	}
 	i = 0;
 	while (i < size)
 	{
-		arr[i] = val[size - i - 1];
+		arr[i] = s_arr[size - i - 1];
 		i++;
 	}
 	a->arr = arr;
 	a->top = size - 1;
 	a->bottom = 0;
-	return (a);
 }
 
 void	init_b(int size)
@@ -42,15 +41,15 @@ void	init_b(int size)
 	int		i;
 
 	if (!(b = (t_dq *)malloc(sizeof(*b))))
-		return (NULL);
-	if (!(arr = (int *)malloc(sizeof(int) * (size + 2))))
+		return ;
+	if (!(arr = (int *)malloc(sizeof(int) * (size + 1))))
 	{
 		free(b);
-		return (NULL);
+		return ;
 	}
 	i = 0;
 	while (i < size + 2)
-		arr[i++] = NULL;
+		arr[i++] = 0;
 	b->arr = arr;
 	b->top = -1;
 	b->bottom = 0;

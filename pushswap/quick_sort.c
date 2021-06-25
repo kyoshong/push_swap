@@ -6,13 +6,13 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:26:59 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/24 17:17:30 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/25 16:44:45 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
-int		partition(int *s_arr, int l, int r)
+int		partition(int l, int r)
 {
 	int i;
 	int tem;
@@ -35,15 +35,15 @@ int		partition(int *s_arr, int l, int r)
 	return (i);
 }
 
-void	quick_sort(int *s_arr, int l, int r)
+void	quick_sort(int l, int r)
 {
 	int i;
 
 	if (l < r)
 	{
-		i = partition(s_arr, l, r);
-		quick_sort(s_arr, l , i - 1);
-		quick_sort(s_arr, i + 1 , r);
+		i = partition(l, r);
+		quick_sort(l , i - 1);
+		quick_sort(i + 1 , r);
 	}
 	else
 		return ;

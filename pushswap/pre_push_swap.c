@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:49:01 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/24 17:18:29 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/26 02:43:54 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ int		*make_list(char **argv, int len, int argc)
 		combine_argv[z++] = ' ';
 		i++;
 	}
-	return(ft_split_atoi(combine_argv, ' '));
+	ft_split_atoi(combine_argv, ' ');
+	return (NULL);
 }
 
 int		*get_list(int argc, char **argv)
@@ -45,6 +46,7 @@ int		*get_list(int argc, char **argv)
 	len = 0;
 	while (argc > i)
 	{
+		printf("%d", len);
 		j = 0;
 		while (argv[i][j])
 			j++;
@@ -64,15 +66,38 @@ int		get_len(int *arr)
 	return (i);
 }
 
+int		avail_arr(int len)
+{
+	int i;
+
+	i = 1;
+	if (len == 1)
+		return (0);
+	while (i < len)
+	{
+		if (s_arr[i] < s_arr[i - 1])
+			return (1);
+	}
+	return (0);
+}
+
 void	pre_push_swap(int argc, char **argv)
 {
 	int len;
 
-	s_arr = get_list(argc, argv);
+	printf("1");
+	get_list(argc, argv);
 	len = get_len(s_arr);
-	init_a(s_arr, len);
-	init_b(len);
-	quick_sort(s_arr, 0, len - 1);
-	push_swap(len);
+	printf("2");
+	if (s_arr != NULL || avail_arr(len))
+	{
+		init_a(len);
+		printf("3");
+		init_b(len);
+		printf("4");
+		quick_sort(0, len - 1);
+		printf("6");
+		push_swap(len);
+	}
 	free(s_arr);
 }

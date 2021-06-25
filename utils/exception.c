@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 14:35:36 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/17 01:01:25 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/25 22:24:58 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ void		ft_isnumber(char **arg, int argc)
 
 	j = 0;
 	i = 1;
-
-
 	while (i < argc)
 	{
 		while (arg[i][j])
@@ -40,9 +38,11 @@ void	print_error(char *error)
 	exit(0);
 }
 
-void	print_error_free(char *error, char *tem_str)
+void	error_free(char *error, char *tem_str, char *s, int *numarr)
 {
 	write(1, error, ft_strlen(error));
+	free(s);
+	free(numarr);
 	free(tem_str);
 	exit(0);
 }

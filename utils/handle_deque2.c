@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:26:41 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/23 23:07:02 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/25 22:00:41 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	top_pop_dq(t_dq *dq)
 {
 	if (!empty_dq(dq))
 	{
-		dq->arr[dq->top] = NULL;
+		dq->arr[dq->top] = 0;
 		dq->top = dq->top - 1;
 	}
 }
@@ -33,7 +33,7 @@ void	bottom_pop_dq(t_dq *dq)
 			dq->arr[i] = dq->arr[i + 1];
 			i++;
 		}
-		dq->arr[dq->top] = NULL;
+		dq->arr[dq->top] = 0;
 		dq->top = dq->top - 1;
 	}
 }

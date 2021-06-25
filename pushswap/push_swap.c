@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:26:53 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/24 23:22:55 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/25 16:38:42 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,21 +94,21 @@ void	sort_pivot2(int big, int small)
 	{
 		i = find_short(limit, big--, small++);
 		if (i == 1)
-			move_top_top(big, small, 0);
+			move_top(big, 0, 0);
 		else if (i == 2)
-			move_top_top(big, small, 0);
+			move_top(big--, 0, 1);
 		else if (i == 3)
-			move_top_bottom(big - 1, small + 1, 1);
+			move_top(small, 1, 0);
 		else if (i == 4)
-			move_top_bottom(big - 1, small + 1, 1);
+			move_top(small++, 1, 1);
 		else if (i == 5)
-			move_bottom_bottom(big - 1, small + 1, 1);
+			move_bottom(small, 1, 0);
 		else if (i == 6)
-			move_bottom_bottom(big - 1, small + 1, 1);
+			move_bottom(small++, 1, 1);
 		else if (i == 7)
-			move_bottom_top(big - 1, small + 1, 1);
+			move_bottom(big, 0, 0);
 		else if (i == 8)
-			move_bottom_top(big - 1, small + 1, 1);
+			move_bottom(big--, 0, 1);
 	}
 }
 

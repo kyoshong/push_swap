@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 18:17:33 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/17 00:52:57 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/25 22:25:10 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		space_check(char b)
 	return (0);
 }
 
-int		ft_atoi(char *str)
+int		ft_atoi(char *str, char *s, int *numarr)
 {
 	long	i;
 	long	minus;
@@ -46,14 +46,12 @@ int		ft_atoi(char *str)
 	if (str[i] == '-' || str[i] == '+')
 		i++;
 	if (str[i] < '0' || str[i] > '9' || str[i] == '\0')
-		print_error_free("Error\n atoi숫자가 아닙니다요", str);
+		error_free("Error\natoi숫자가 아닙니다요", str, s, numarr);
 	while (str[i] >= '0' && str[i] <= '9' && str[i] != '\0')
 	{
 		num = (num * 10) + (str[i] - '0');
-		if (num > 2147483647 && minus == 1)
-			print_error_free("Error\n 범위를 벗어났어요", str);
-		if (num > 2147483648 && minus == -1)
-			print_error_free("Error\n 범위를 벗어났어요", str);
+		if ((num > 2147483647 && minus == 1) || (num > 2147483648 && minus == -1))
+			error_free("Error\n범위를 벗어났어요", str, s, numarr);
 		i++;
 	}
 	return (num * minus);
