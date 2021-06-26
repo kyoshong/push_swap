@@ -1,6 +1,5 @@
 NAME = libpushswap.a
-CFLAGS = -Wall -Wextra -Werror
-LEAKLAGS = -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g
 SOURCE = pushswap/push_swap.c \
 		pushswap/find_route.c \
 		pushswap/pre_push_swap.c \

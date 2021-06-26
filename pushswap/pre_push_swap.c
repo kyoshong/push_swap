@@ -6,11 +6,11 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:49:01 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/26 02:43:54 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/27 00:29:17 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/push_swap.h"
+#include "../push_swap.h"
 
 int		*make_list(char **argv, int len, int argc)
 {
@@ -32,8 +32,7 @@ int		*make_list(char **argv, int len, int argc)
 		combine_argv[z++] = ' ';
 		i++;
 	}
-	ft_split_atoi(combine_argv, ' ');
-	return (NULL);
+	return (ft_split_atoi(combine_argv, ' '));
 }
 
 int		*get_list(int argc, char **argv)
@@ -44,9 +43,8 @@ int		*get_list(int argc, char **argv)
 	
 	i = 1;
 	len = 0;
-	while (argc > i)
+	while (i < argc)
 	{
-		printf("%d", len);
 		j = 0;
 		while (argv[i][j])
 			j++;
@@ -66,7 +64,7 @@ int		get_len(int *arr)
 	return (i);
 }
 
-int		avail_arr(int len)
+int		avail_arr(int len, t_info *info)
 {
 	int i;
 
@@ -75,8 +73,9 @@ int		avail_arr(int len)
 		return (0);
 	while (i < len)
 	{
-		if (s_arr[i] < s_arr[i - 1])
+		if (info->s_arr[i] < info->s_arr[i - 1])
 			return (1);
+		i++;
 	}
 	return (0);
 }
@@ -84,20 +83,20 @@ int		avail_arr(int len)
 void	pre_push_swap(int argc, char **argv)
 {
 	int len;
-
-	printf("1");
-	get_list(argc, argv);
-	len = get_len(s_arr);
-	printf("2");
-	if (s_arr != NULL || avail_arr(len))
+	t_info *info;
+	
+	if (!(info = (t_info *)malloc(sizeof(*info))))
+		return ;
+	info->s_arr = get_list(argc, argv);
+	info->total_count = 0;
+	len = get_len(info->s_arr);
+	if (info->s_arr != NULL && avail_arr(len, info))
 	{
-		init_a(len);
-		printf("3");
-		init_b(len);
-		printf("4");
-		quick_sort(0, len - 1);
-		printf("6");
-		push_swap(len);
+		init_a(len - 1, info);
+		init_b(len - 1, info);
+		quick_sort(info, 0, len - 1);
+		push_swap(info, len);
 	}
-	free(s_arr);
+	free(info->s_arr);
+	free(info);
 }

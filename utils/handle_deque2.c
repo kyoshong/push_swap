@@ -6,11 +6,11 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:26:41 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/25 22:00:41 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/26 22:53:13 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/push_swap.h"
+#include "../push_swap.h"
 
 void	top_pop_dq(t_dq *dq)
 {

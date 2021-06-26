@@ -6,11 +6,11 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:27:05 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/26 03:09:38 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/26 03:31:48 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/push_swap.h"
+#include "../push_swap.h"
 
 int		main(int argc, char *argv[])
 {

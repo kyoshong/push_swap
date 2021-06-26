@@ -6,11 +6,11 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 18:17:33 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/25 22:25:10 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/26 03:30:31 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/push_swap.h"
+#include "../push_swap.h"
 
 int		ft_strlen(char *str)
 {

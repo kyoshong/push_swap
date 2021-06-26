@@ -6,14 +6,13 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:45:25 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/26 02:44:47 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/26 14:59:38 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../push_swap.h"
 
-#include "../headers/push_swap.h"
-
-static int	word_count(char const *s, char c)
+static int	word_count(char *s, char c)
 {
 	int	i;
 	int	cnt;
@@ -51,10 +50,12 @@ static char	*word_make(char *s, int j, int word_len)
 void	check_dupl(int *numarr, int i, char *s, char *tem_str)
 {
 	int j = 0;
+	
 	while (j < i)
 	{
 		if (numarr[j] == numarr[i])
 			error_free("Error\n중복된 숫자입니다.", tem_str, s, numarr);
+		j++;
 	}
 }
 

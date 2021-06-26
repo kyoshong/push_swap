@@ -6,13 +6,13 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 14:12:02 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/25 22:27:17 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/26 17:37:13 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/push_swap.h"
+#include "../push_swap.h"
 
-void	move_top(int val, int rotate, int next_val)
+void	move_top(t_info *info, int val, int rotate, int next_val)
 {
 	int tem;
 	
@@ -24,23 +24,23 @@ void	move_top(int val, int rotate, int next_val)
 		tem = val;
 	while (1)
 	{
-		if (top_dq(b) == s_arr[tem])
+		if (top_dq(info->b) == info->s_arr[tem])
 			break ;
-		rotate_b();
+		rotate_b(info);
 	}
-	push_a();
+	push_a(info);
 	if (next_val)
 	{
-		find_one_val(val);
-		swap_a();
+		find_one_val(info, val);
+		swap_a(info);
 		if (rotate)
-			rotate_a();
+			rotate_a(info);
 	}
 	if (rotate)
-		rotate_a();
+		rotate_a(info);
 }
 
-void	move_bottom(int val, int rotate, int next_val)
+void	move_bottom(t_info *info, int val, int rotate, int next_val)
 {
 	int tem;
 	
@@ -52,44 +52,39 @@ void	move_bottom(int val, int rotate, int next_val)
 		tem = val;
 	while (1)
 	{
-		if (top_dq(b) == s_arr[tem])
+		if (top_dq(info->b) == info->s_arr[tem])
 			break ;
-		rev_rotate_b();
+		rev_rotate_b(info);
 	}
-	push_a();
+	push_a(info);
 	if (next_val)
 	{
-		find_one_val(val);
-		swap_a();
+		find_one_val(info, val);
+		swap_a(info);
 		if (rotate)
-			rotate_a();
+			rotate_a(info);
 	}
 	if (rotate)
-		rotate_a();
+		rotate_a(info);
 }
 
-void	find_one_val(int val)
+void	find_one_val(t_info *info, int val)
 {
-	int count;
-	int result;
 	int i;
 	int j;
 
-	result = 0;
-	i = b->top;
-	j = b->bottom;
-	count = 0;
+	i = info->b->top;
+	j = info->b->bottom;
 	while (1)
 	{
-		count++;
-		if (b->arr[i] == s_arr[val])
+		if (info->b->arr[i] == info->s_arr[val])
 		{
-			move_top(val, 0, 0);
+			move_top(info, val, 0, 0);
 			break ;
 		}
-		if (b->arr[j] == s_arr[val])
+		if (info->b->arr[j] == info->s_arr[val])
 		{
-			move_bottom(val, 0, 0);
+			move_bottom(info, val, 0, 0);
 			break ;
 		}
 		i--;

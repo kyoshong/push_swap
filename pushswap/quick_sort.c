@@ -6,45 +6,47 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:26:59 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/25 16:44:45 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/27 00:23:44 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/push_swap.h"
+#include "../push_swap.h"
 
-int		partition(int l, int r)
+void	swap_arr(t_info *info, int a, int b)
+{
+	int tem;
+	
+	tem = info->s_arr[a];
+	info->s_arr[a] = info->s_arr[b];
+	info->s_arr[b] = tem;
+}
+
+int		partition(t_info *info, int l, int r)
 {
 	int i;
-	int tem;
 
 	i = l;
 	while (l < r)
 	{
-		if (s_arr[l] < s_arr[r])
+		if (info->s_arr[l] < info->s_arr[r])
 		{
-			tem = s_arr[l];
-			s_arr[l] = s_arr[i];
-			s_arr[i] = tem;
+			swap_arr(info, l, i);
 			i++;
 		}
 		l++;
 	}
-	tem = s_arr[r];
-	s_arr[r] = s_arr[i];
-	s_arr[i] = tem;
+	swap_arr(info, r, i);
 	return (i);
 }
 
-void	quick_sort(int l, int r)
+void	quick_sort(t_info *info, int l, int r)
 {
 	int i;
 
 	if (l < r)
 	{
-		i = partition(l, r);
-		quick_sort(l , i - 1);
-		quick_sort(i + 1 , r);
+		i = partition(info, l, r);
+		quick_sort(info, l , i - 1);
+		quick_sort(info, i + 1 , r);
 	}
-	else
-		return ;
 }
