@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 14:12:02 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/26 17:37:13 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/27 03:29:31 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,15 @@ void	move_top(t_info *info, int val, int rotate, int next_val)
 		tem = val + 1;
 	else
 		tem = val;
-	while (1)
+	int i = 0;
+	while (i < 10)
 	{
+		printf("top : %d\n", info->b->top);
+		printf("top_dq : %d s_arr : %d\n", top_dq(info->b), info->s_arr[tem]);
 		if (top_dq(info->b) == info->s_arr[tem])
 			break ;
 		rotate_b(info);
+		i++;
 	}
 	push_a(info);
 	if (next_val)
