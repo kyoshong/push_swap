@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:26:59 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/27 00:23:44 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/27 15:04:14 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		partition(t_info *info, int l, int r)
 	i = l;
 	while (l < r)
 	{
-		if (info->s_arr[l] < info->s_arr[r])
+		if (info->s_arr[l] > info->s_arr[r])
 		{
 			swap_arr(info, l, i);
 			i++;

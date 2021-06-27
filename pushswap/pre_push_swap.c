@@ -6,13 +6,13 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:49:01 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/27 03:07:48 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/28 00:10:19 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int		*make_list(char **argv, int len, int argc)
+int		*make_list(char **argv, int len, int argc, t_info *info)
 {
 	char *combine_argv;
 	int i;
@@ -32,10 +32,10 @@ int		*make_list(char **argv, int len, int argc)
 		combine_argv[z++] = ' ';
 		i++;
 	}
-	return (ft_split_atoi(combine_argv, ' '));
+	return (ft_split_atoi(combine_argv, ' ', info));
 }
 
-int		*get_list(int argc, char **argv)
+int		*get_list(int argc, char **argv, t_info *info)
 {
 	int i;
 	int j;
@@ -51,27 +51,17 @@ int		*get_list(int argc, char **argv)
 		len += j + 1;
 		i++;
 	}
-	return (make_list(argv, len, argc));
+	return (make_list(argv, len, argc, info));
 }
 
-int		get_len(int *arr)
-{
-	int i;
-
-	i = 0;
-	while (arr[i])
-		i++;
-	return (i);
-}
-
-int		avail_arr(int len, t_info *info)
+int		avail_arr(t_info *info)
 {
 	int i;
 
 	i = 1;
-	if (len == 1)
+	if (info->s_len == 1)
 		return (0);
-	while (i < len)
+	while (i < info->s_len)
 	{
 		if (info->s_arr[i] < info->s_arr[i - 1])
 			return (1);
@@ -82,21 +72,20 @@ int		avail_arr(int len, t_info *info)
 
 void	pre_push_swap(int argc, char **argv)
 {
-	int len;
 	t_info *info;
 	
 	if (!(info = (t_info *)malloc(sizeof(*info))))
 		return ;
-	info->s_arr = get_list(argc, argv);
+	info->s_arr = get_list(argc, argv, info);
 	info->total_count = 0;
-	len = get_len(info->s_arr);
-	if (info->s_arr != NULL && avail_arr(len, info))
+	if (info->s_arr != NULL && avail_arr(info))
 	{
-		init_a(len - 1, info);
-		init_b(len - 1, info);
-		quick_sort(info, 0, len - 1);
-		push_swap(info, len);
+		init_b(info->s_len - 1, info);
+		init_a(info->s_len - 1, info);
+		quick_sort(info, 0, info->s_len - 1);
+		push_swap(info, info->s_len);
 	}
+	//printf("total_count : %d\n", info->total_count);
 	free(info->s_arr);
 	free(info);
 }

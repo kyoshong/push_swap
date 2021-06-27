@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:49:30 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/26 22:58:34 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/27 23:22:03 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	init_a(int size, t_info *info)
 	int		*arr;
 	int		i;
 
+	
 	if (!(info->a = (t_dq *)malloc(sizeof(*info->a))))
 		return ;
 	if (!(arr = (int *)malloc(sizeof(int) * (size + 1))))

@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:26:53 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/27 03:36:06 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/27 23:55:15 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,15 +158,22 @@ void	sort_pivot(t_info *info, int len)
 
 void	push_swap(t_info *info, int len)
 {
-	for (int i = 0; i < 10; i++)
+	// printf("\nbefore : \n");
+	// for (int i = len; i < 3; i++)
+	// 	printf("%d\n", info->a->arr[i]);
+	// printf("------------\n");
+	// printf("a  b\n\n");
+	//printf("len : %d\n", len);
+	if (len <= 5)
+		simple_push_swap(info, len);
+	else
 	{
-		printf("%d : %d\n", i, info->s_arr[i]);
+		div_pivot(info, len);
+		sort_pivot(info, len);
 	}
-	div_pivot(info, len);
-	sort_pivot(info, len);
-	for (int i = 9; i <= 0; i++)
-	{
-		printf("%d ", info->a->arr[i]);
-	}
-	printf("\n");
+	// printf("\nafter : \n");
+	// for (int i = 0; i < 3; i++)
+	// 	printf("%d\n", info->a->arr[i]);
+	// printf("------------\n");
+	// printf("a  b\n\n");
 }

@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 18:07:18 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/26 22:56:27 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/27 23:31:36 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	swap_a(t_info *info)
 {
 	write(1, "sa\n", 3);
-	int tem = info->a->top;
+	int tem = info->a->arr[info->a->top];
 	info->a->arr[info->a->top] = info->a->arr[size_dq(info->a) - 1];
 	info->a->arr[size_dq(info->a) - 1] = tem;
 	info->total_count++;
@@ -26,7 +26,7 @@ void	swap_a(t_info *info)
 void	swap_b(t_info *info)
 {
 	write(1, "sb\n", 3);
-	int tem = info->b->top;
+	int tem = info->b->arr[info->b->top];
 	info->b->arr[info->b->top] = info->b->arr[size_dq(info->b) - 1];
 	info->b->arr[size_dq(info->b) - 1] = tem;
 	info->total_count++;

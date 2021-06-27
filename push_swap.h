@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:48:51 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/26 17:51:17 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/27 19:56:10 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef	struct	s_info
 	t_dq	*a;
 	t_dq	*b;
 	int		*s_arr;
+	int		s_len;
 	int		total_count;
 	int		find_min_t;
 	int		find_min_b;
@@ -40,8 +41,8 @@ int		main(int argc, char *argv[]);
 
 //pre_push_swap
 int		get_len(int *arr);
-int		*make_list(char **argv, int len, int argc);
-int		*get_list(int argc, char **argv);
+int		*make_list(char **argv, int len, int argc, t_info *info);
+int		*get_list(int argc, char **argv, t_info *info);
 void	pre_push_swap(int argc, char **argv);
 
 //handle_deque
@@ -62,6 +63,11 @@ int		size_dq(t_dq *dq);
 //quick_sort
 void	quick_sort(t_info *info, int l, int r);
 int		partition(t_info *info, int l, int r);
+//simple_push_swap
+void	simple_push_swap(t_info *info, int len);
+void	five_push_swap(t_info *info, int len);
+int		check_next_val(t_info *info, int len);
+int		check_fin(t_info *info, int len);
 
 //push_swap
 void	push_swap(t_info *info, int len);
@@ -88,7 +94,7 @@ int		space_check(char b);
 void	check_dupl(int *numarr, int i, char *s, char *tem_str);
 int		ft_atoi(char *str, char *s, int *numarr);
 int		*split2(char *s, char c, int word_num, int i);
-int		*ft_split_atoi(char *s, char c);
+int		*ft_split_atoi(char *s, char c, t_info *info);
 
 //exception
 void	error_free(char *error, char *tem_str, char *s, int *numarr);
