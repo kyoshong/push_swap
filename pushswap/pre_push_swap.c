@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:49:01 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/28 00:10:19 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/28 02:12:19 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,8 @@ void	pre_push_swap(int argc, char **argv)
 	info->total_count = 0;
 	if (info->s_arr != NULL && avail_arr(info))
 	{
-		init_b(info->s_len - 1, info);
-		init_a(info->s_len - 1, info);
+		init_a(info->s_len, info);
+		init_b(info->s_len, info);
 		quick_sort(info, 0, info->s_len - 1);
 		push_swap(info, info->s_len);
 	}

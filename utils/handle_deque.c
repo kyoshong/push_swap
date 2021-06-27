@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:49:30 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/27 23:22:03 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/28 02:24:50 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	init_a(int size, t_info *info)
 	int		*arr;
 	int		i;
 
-	
 	if (!(info->a = (t_dq *)malloc(sizeof(*info->a))))
 		return ;
 	if (!(arr = (int *)malloc(sizeof(int) * (size + 1))))
@@ -26,13 +25,15 @@ void	init_a(int size, t_info *info)
 		return ;
 	}
 	i = 0;
-	while (i < size + 1)
+	while (i < size)
 	{
-		arr[i] = info->s_arr[size - i];
+		arr[i] = info->s_arr[size - i -1];
 		i++;
 	}
+	arr[size] = 0;
+	arr[size + 1] = 0;
 	info->a->arr = arr;
-	info->a->top = size;
+	info->a->top = size - 1;
 	info->a->bottom = 0;
 }
 
@@ -49,7 +50,7 @@ void	init_b(int size, t_info *info)
 		return ;
 	}
 	i = 0;
-	while (i < size + 1)
+	while (i < size + 2)
 		arr[i++] = 0;
 	info->b->arr = arr;
 	info->b->top = -1;

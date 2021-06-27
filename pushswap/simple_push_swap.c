@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 14:24:02 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/28 00:09:56 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/28 02:21:09 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	five_push_swap(t_info *info, int len)
 	}
 	if (top_dq(info->b) < bottom_dq(info->b))
 		swap_b(info);
-	simple_push_swap(info, len / 2);
+	simple_push_swap(info, 3);
 	while (!empty_dq(info->b))
 		push_a(info);
 }
