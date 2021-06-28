@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 18:17:33 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/26 03:30:31 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/29 03:27:37 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,7 @@ int		ft_atoi(char *str, char *s, int *numarr)
 			error_free("Error\n범위를 벗어났어요", str, s, numarr);
 		i++;
 	}
+	if (str[i] != '\0')
+		error_free("Error\n뒤에 이상한 문자가 붙어있다!", str, s, numarr);
 	return (num * minus);
 }

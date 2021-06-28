@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 14:12:02 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/28 22:22:57 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/29 03:07:14 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,12 @@ int		move_top(t_info *info, int val, int rotate, int next_val)
 		tem = val + 1;
 	else
 		tem = val;
-		printf("\ntem : %d\n\n", info->s_arr[tem]);
-	printf("top_dq(info->b) : %d info->s_arr[tem] : %d  b.top : %d\n", 
-	top_dq(info->b), info->s_arr[tem], info->b->top);
-	printf("\ninfo->s_arr : %d rotate : %d next_val : %d\n",info->s_arr[val] , rotate, next_val );
+	// if (info->s_arr[tem] == 34 || info->s_arr[tem] == 35)
+	// {
+	// 	printf("\n-------------start-----------\n");
+	// 	printf("rotate : %d next_val : %d\n",  rotate, next_val);
+	// 	printf("tem : %d  val : %d\n", tem, val);
+	// }
 	while (1)
 	{
 		if (top_dq(info->b) == info->s_arr[tem])
@@ -36,19 +38,24 @@ int		move_top(t_info *info, int val, int rotate, int next_val)
 	if (next_val)
 	{
 		find_one_val(info, val);
-		swap_a(info);
+		// if (top_dq(info->a) > info->a->arr[info->a->top - 1])
+		// 	swap_a(info);
 		if (rotate)
 			rotate_a(info);
+		else
+			swap_a(info);
 	}
 	if (rotate)
 		rotate_a(info);
-	printf("info->s_arr : %d rotate : %d next_val : %d\n",info->s_arr[val] , rotate, next_val );
-	for (int i =info->s_len; i >= 0; i--)
-	{
-		printf("%d  %d\n", info->a->arr[i], info->b->arr[i]);
-	}
-	printf("------------------\n");
-	printf("a  b\n\n");
+	// if (info->s_arr[tem] == 34 || info->s_arr[tem] == 35)
+	// {
+	// 	printf("\n-------------end-----------\n");
+	// 		for (int i = 100; i >= 0; i--)
+	// 	{
+	// 		printf("%d  %d\n", info->a->arr[i], info->b->arr[i]);
+	// 	}
+	// 		printf("------------------\na  b\n");
+	// }
 	return (2);
 }
 
@@ -62,10 +69,12 @@ int		move_bottom(t_info *info, int val, int rotate, int next_val)
 		tem = val + 1;
 	else
 		tem = val;
-	// printf("\ntem : %d\n\n", info->s_arr[tem]);
-	// printf("top_dq(info->b) : %d info->s_arr[tem] : %d  b.top : %d\n", 
-	// top_dq(info->b), info->s_arr[tem], info->b->top);
-	// printf("\ninfo->s_arr : %d rotate : %d next_val : %d\n",info->s_arr[val] , rotate, next_val );
+	// 	if (info->s_arr[tem] == 34 || info->s_arr[tem] == 35)
+	// {
+	// 	printf("\n-------------start-----------\n");
+	// 	printf("rotate : %d next_val : %d\n",  rotate, next_val);
+	// 	printf("tem : %d  val : %d\n", tem, val);
+	// }
 	while (1)
 	{
 		if (top_dq(info->b) == info->s_arr[tem])
@@ -76,18 +85,23 @@ int		move_bottom(t_info *info, int val, int rotate, int next_val)
 	if (next_val)
 	{
 		find_one_val(info, val);
-		swap_a(info);
+	// 		if (info->s_arr[tem] == 34 || info->s_arr[tem] == 35)
+	// {
+	// 	printf("\n-------------end-----------\n");
+	// 		for (int i = 100; i >= 0; i--)
+	// 	{
+	// 		printf("%d  %d\n", info->a->arr[i], info->b->arr[i]);
+	// 	}
+	// 		printf("------------------\na  b\n");
+	// }
 		if (rotate)
 			rotate_a(info);
+		else
+			swap_a(info);
 	}
 	if (rotate)
 		rotate_a(info);
-	for (int i =info->s_len; i >= 0; i--)
-	{
-		printf("%d  %d\n", info->a->arr[i], info->b->arr[i]);
-	}
-	printf("------------------\n");
-	printf("a  b\n\n");
+
 	return (2);
 }
 

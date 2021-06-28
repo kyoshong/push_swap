@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 21:34:41 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/28 21:34:03 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/29 00:12:52 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ int		find_short_top(t_info *info, int limit, int big, int small)
 	count = 1;
 	info->find_min_t = 0;
 	result = 0;
-	printf("info->b->arr[i] : %d\ninfo->s_arr[limit] : %d\ninfo->s_arr[big + 1] : %d\ninfo->s_arr[small -1] : %d\n",
-	  info->b->arr[i], info->s_arr[limit],info->s_arr[big + 1],info->s_arr[small - 1]);
 	while (!empty_dq(info->b) && info->b->arr[i] > info->s_arr[limit])
 	{
 		if (info->b->arr[i] == info->s_arr[big])
@@ -49,7 +47,6 @@ int		find_short_top(t_info *info, int limit, int big, int small)
 		i--;
 		count++;
 	}
-	printf("result : %d\n", result);
 	return (result);
 }
 
@@ -90,7 +87,6 @@ int		find_short(t_info *info, int limit, int big, int small)
 
 	t_result = find_short_top(info, limit, big, small);
 	b_result = find_short_bottom(info, limit, big, small);
-	printf("t_result : %d \nb_result :%d\nbig : %d\nsmall : %d\n",t_result, b_result, info->s_arr[big], info->s_arr[small]);
 	if (!t_result)
 		return (b_result);
 	if (!b_result)

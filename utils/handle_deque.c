@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:49:30 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/28 20:04:00 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/29 02:58:38 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,11 @@ void	push_bottom_dq(int val, t_dq *dq)
 	{
 		dq->top = dq->top + 1;
 		i = dq->top;
-		while (0 <= i)
+		while (0 < i)
 		{
-			dq->arr[i + 1] = dq->arr[i];
+			dq->arr[i] = dq->arr[i - 1];
 			i--;
 		}
-		dq->arr[dq->bottom] = val;
+		dq->arr[0] = val;
 	}
 }

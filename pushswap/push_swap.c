@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:26:53 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/28 22:22:03 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/29 03:35:48 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,8 +108,16 @@ void	sort_pivot2(t_info *info, int big, int small, int limit)
 			move_bottom(info, big++, 0, 0);
 		else if (i == 8)
 			big += move_bottom(info, big, 0, 1);
+		// if (info->s_arr[small] == 37 || info->s_arr[small] == 38)
+		// {
+		// for (int i = 100; i >= 0; i--)
+		// {
+		// 	printf("%d  %d\n", info->a->arr[i], info->b->arr[i]);
+		// }
+		// 	printf("------------------\na  b\n");
+		// }
 	}
-	while (bottom_dq(info->a) < top_dq(info->a))
+	while (bottom_dq(info->a) != info->s_arr[0])
 		rev_rotate_a(info);
 }
 
@@ -121,16 +129,9 @@ void	sort_pivot(t_info *info, int len)
 		swap_a(info);
 	div = len / 3;
 	sort_pivot2(info, 1, div - 1, div);
-	printf("\n---------------1------------------------\n");
 	sort_pivot2(info, div + 1, div * 2, (div * 2) + 1);
-	printf("\n---------------2------------------------\n");
-	//sort_pivot2(info, (div * 2) + 1, len - 1, len);
-	//printf("\n---------------3------------------------\n");
-	//push_a(info);
-			for (int i =info->s_len; i >= 0; i--)
-		printf("%d  %d\n", info->a->arr[i], info->b->arr[i]);
-		printf("------------------\n");
-		printf("a  b\n\n");
+	sort_pivot2(info, (div * 2) + 1, len - 1, len);
+	push_a(info);
 }
 
 void	push_swap(t_info *info, int len)
@@ -140,11 +141,11 @@ void	push_swap(t_info *info, int len)
 	else
 	{
 		div_pivot(info, len - 1);
-		printf("\n\ninfo->total_count : %d\n", info->total_count);
 		sort_pivot(info, len - 1);
 		// for (int i =info->s_len; i >= 0; i--)
 		// printf("%d  %d\n", info->a->arr[i], info->b->arr[i]);
 		// printf("------------------\n");
 		// printf("a  b\n\n");
+		// printf("total_count :%d\n", info->total_count);
 	}
 }
