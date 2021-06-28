@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 18:07:18 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/27 23:31:36 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/28 21:00:38 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ void	push_b(t_info *info)
 	write(1, "pb\n", 3);
 	if (!empty_dq(info->a))
 	{
-		push_top_dq(top_dq(info->a), info->b);
+		info->b->top = info->b->top + 1;
+		info->b->arr[info->b->top] = top_dq(info->a);
 		top_pop_dq(info->a);
 		info->total_count++;
 	}
@@ -115,11 +116,13 @@ void	rev_rotate_a(t_info *info)
 //스택 b의 모든 원소들을 아래로 1 인덱스 만큼 내린다. 마지막 원소(바텀)는 첫 번째 원소(탑)가 된다.
 void	rev_rotate_b(t_info *info)
 {
+	int val;
 	write(1, "rrb\n", 4);
-	if (!empty_dq(info->a))
+	if (!empty_dq(info->b))
 	{
-		push_top_dq(bottom_dq(info->b), info->b);
+		val = bottom_dq(info->b);
 		bottom_pop_dq(info->b);
+		push_top_dq(val, info->b);
 		info->total_count++;
 	}
 }

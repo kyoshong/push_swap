@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:26:53 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/28 02:52:24 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/28 22:22:03 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	div_pivot_a(t_info *info, int len)
 	
 	p1 = info->s_arr[0];
 	p2 = info->s_arr[len / 3];
-	printf ("\n\np1 : %d  p2 : %d\n\n", p1, p2);
 	i = 0;
 	while (i <= len / 3)
 	{
@@ -33,11 +32,6 @@ void	div_pivot_a(t_info *info, int len)
 				rotate_b(info);
 		}
 		i++;
-	printf("----------\n");
-	for (int i = 9; i >= 0; i--)
-		printf("%d %d\n", info->a->arr[i], info->b->arr[i]);
-	printf("----------\na b \n\n");
-	printf("b.top : %d // a.top : %d\n",info->b->top, info->a->top);
 	}
 }
 
@@ -48,7 +42,6 @@ void	div_pivot_b(t_info *info, int len)
 	
 	p1 = info->s_arr[len];
 	i = 0;
-	printf ("\n\np1 : %d \n\n", p1);
 	while (i < len * 2 + 1)
 	{
 		if (top_dq(info->a) >= p1)
@@ -62,11 +55,6 @@ void	div_pivot_b(t_info *info, int len)
 				rotate_b(info);
 		}
 		i++;
-		printf("----------\n");
-		for (int i = 9; i >= 0; i--)
-		printf("%d %d\n", info->a->arr[i], info->b->arr[i]);
-		printf("----------\na b \n\n");
-		printf("b.top : %d // a.top : %d\n",info->b->top, info->a->top);
 	}
 }
 
@@ -77,7 +65,6 @@ void	div_pivot(t_info *info, int len)
 
 	p1 = info->s_arr[(len / 3) * 2];
 	i = 0;
-	printf ("\n\np1 : %d \n\n", p1);
 	while (i <= len)
 	{
 		if (top_dq(info->a) >= p1)
@@ -91,92 +78,73 @@ void	div_pivot(t_info *info, int len)
 				rotate_b(info);
 		}
 		i++;
-		printf("----------\n");
-		for (int i = 9; i >= 0; i--)
-		printf("%d %d\n", info->a->arr[i], info->b->arr[i]);
-		printf("----------\na b \n\n");
-		printf("b.top : %d // a.top : %d\n",info->b->top, info->a->top);
 	}
-	printf("-----------------------------\n");
-		printf("-----------------------------\n");
 	div_pivot_b(info, len / 3);
-	printf("-----------------------------\n");
-		printf("-----------------------------\n");
 	div_pivot_a(info, len);
-		printf("-----------------------------\n");
-			printf("-----------------------------\n");
-	printf("end div \n");
 }
 
-void	sort_pivot2(t_info *info, int big, int small)
+void	sort_pivot2(t_info *info, int big, int small, int limit)
 {
 	int i;
-	int limit;
 
 	i = 0;
-	limit = small;
-	while (big >= small)
+	while (!empty_dq(info->b) && big <= small)
 	{
-		i = find_short(info, limit, big, small);
+		if(!(i = find_short(info, limit, big, small)))
+			break ;
 		if (i == 1)
-			move_top(info, big, 0, 0);
+			move_top(info, big++, 0, 0);
 		else if (i == 2)
-			move_top(info, big--, 0, 1);
+			big += move_top(info, big, 0, 1);
 		else if (i == 3)
-			move_top(info, small, 1, 0);
+			move_top(info, small--, 1, 0);
 		else if (i == 4)
-			move_top(info, small++, 1, 1);
+			small -= move_top(info, small, 1, 1);
 		else if (i == 5)
-			move_bottom(info, small, 1, 0);
+			move_bottom(info, small--, 1, 0);
 		else if (i == 6)
-			move_bottom(info, small++, 1, 1);
+			small -= move_bottom(info, small, 1, 1);
 		else if (i == 7)
-			move_bottom(info, big, 0, 0);
+			move_bottom(info, big++, 0, 0);
 		else if (i == 8)
-			move_bottom(info, big--, 0, 1);
-		big--;
-		small++;
+			big += move_bottom(info, big, 0, 1);
 	}
+	while (bottom_dq(info->a) < top_dq(info->a))
+		rev_rotate_a(info);
 }
 
 void	sort_pivot(t_info *info, int len)
 {
-	int top;
-	int bottom;
 	int div;
-	int i;
+	
 	if (top_dq(info->a) < bottom_dq(info->a))
 		swap_a(info);
 	div = len / 3;
-	bottom = 0;
-	i = 2;
-	while (i >= 0)
-	{
-		top = bottom + 1;
-		bottom = div * i;
-		sort_pivot2(info, top, bottom +1);
-		i--;
-	}
+	sort_pivot2(info, 1, div - 1, div);
+	printf("\n---------------1------------------------\n");
+	sort_pivot2(info, div + 1, div * 2, (div * 2) + 1);
+	printf("\n---------------2------------------------\n");
+	//sort_pivot2(info, (div * 2) + 1, len - 1, len);
+	//printf("\n---------------3------------------------\n");
+	//push_a(info);
+			for (int i =info->s_len; i >= 0; i--)
+		printf("%d  %d\n", info->a->arr[i], info->b->arr[i]);
+		printf("------------------\n");
+		printf("a  b\n\n");
 }
 
 void	push_swap(t_info *info, int len)
 {
-	// printf("\nbefore : \n");
-	for (int i = 9; i >= 0; i--)
-		printf("%d  %d\n", info->a->arr[i], info->b->arr[i]);
-	printf("------------\n");
-	printf("a  b\n\n");
 	if (len <= 5)
 		simple_push_swap(info, len);
 	else
 	{
 		div_pivot(info, len - 1);
+		printf("\n\ninfo->total_count : %d\n", info->total_count);
 		sort_pivot(info, len - 1);
+		// for (int i =info->s_len; i >= 0; i--)
+		// printf("%d  %d\n", info->a->arr[i], info->b->arr[i]);
+		// printf("------------------\n");
+		// printf("a  b\n\n");
 	}
-	printf("\nafter : \n");
-	for (int i = 9; i >= 0; i--)
-		printf("%d  %d\n", info->a->arr[i], info->b->arr[i]);
-	printf("------------\n");
-	printf("a  b\n\n");
-
 }

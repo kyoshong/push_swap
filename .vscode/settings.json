@@ -5,6 +5,7 @@
 		"chrono": "c",
 		"limits": "c",
 		"ratio": "c",
-		"__locale": "c"
+		"__locale": "c",
+		"bit": "c"
 	}
 }

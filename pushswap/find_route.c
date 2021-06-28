@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 21:34:41 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/27 03:23:06 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/28 21:34:03 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,23 +30,26 @@ int		find_short_top(t_info *info, int limit, int big, int small)
 	count = 1;
 	info->find_min_t = 0;
 	result = 0;
-	while (!empty_dq(info->b) && info->b->arr[i] >= info->s_arr[limit])
+	printf("info->b->arr[i] : %d\ninfo->s_arr[limit] : %d\ninfo->s_arr[big + 1] : %d\ninfo->s_arr[small -1] : %d\n",
+	  info->b->arr[i], info->s_arr[limit],info->s_arr[big + 1],info->s_arr[small - 1]);
+	while (!empty_dq(info->b) && info->b->arr[i] > info->s_arr[limit])
 	{
 		if (info->b->arr[i] == info->s_arr[big])
-			if ((result = max_val(info->find_min_t, count, 1, result)))
+			if ((result = max_val(info->find_min_t, count, 1, result)) == 1)
 				info->find_min_t = count;
-		if (info->b->arr[i] == info->s_arr[big - 1])
-			if ((result = max_val(info->find_min_t, count + 1, 2, result)))
+		if (info->b->arr[i] == info->s_arr[big + 1])
+			if ((result = max_val(info->find_min_t, count + 1, 2, result)) == 2)
 				info->find_min_t = count + 1;
 		if (info->b->arr[i] == info->s_arr[small])
-			if ((result = max_val(info->find_min_t, count + 2, 3, result)))
+			if ((result = max_val(info->find_min_t, count + 2, 3, result)) == 3)
 				info->find_min_t = count + 2;
-		if (info->b->arr[i] == info->s_arr[small + 1])
-			if ((result = max_val(info->find_min_t, count + 3, 4, result)))
+		if (info->b->arr[i] == info->s_arr[small - 1])
+			if ((result = max_val(info->find_min_t, count + 3, 4, result)) == 4)
 				info->find_min_t = count + 3;
 		i--;
 		count++;
 	}
+	printf("result : %d\n", result);
 	return (result);
 }
 
@@ -56,23 +59,23 @@ int		find_short_bottom(t_info *info, int limit, int big, int small)
 	int result;
 	int count;
 
-	j = info->b->bottom;
+	j = 0;
 	count = 1;
 	info->find_min_b = 0;
 	result = 0;
-	while (!empty_dq(info->b) && info->b->arr[j] >= info->s_arr[limit])
+	while (!empty_dq(info->b) && info->b->arr[j] > info->s_arr[limit])
 	{
 		if (info->b->arr[j] == info->s_arr[small])
-			if ((result = max_val(info->find_min_b, count + 4, 5, result)))
+			if ((result = max_val(info->find_min_b, count + 4, 5, result)) == 5)
 				info->find_min_b = count + 4;
-		if (info->b->arr[j] == info->s_arr[small + 1])
-			if ((result = max_val(info->find_min_b, count + 5, 8, result)))
+		if (info->b->arr[j] == info->s_arr[small - 1])
+			if ((result = max_val(info->find_min_b, count + 5, 6, result)) == 6)
 				info->find_min_b = count + 5;
 		if (info->b->arr[j] == info->s_arr[big])
-			if ((result = max_val(info->find_min_b, count + 2, 6, result)))
+			if ((result = max_val(info->find_min_b, count + 2, 7, result)) == 7)
 				info->find_min_b = count + 2;
-		if (info->b->arr[j] == info->s_arr[big - 1])
-			if ((result = max_val(info->find_min_b, count + 3, 7, result)))
+		if (info->b->arr[j] == info->s_arr[big + 1])
+			if ((result = max_val(info->find_min_b, count + 3, 8, result)) == 8)
 				info->find_min_b = count + 3;
 		j++;
 		count++;
@@ -87,6 +90,11 @@ int		find_short(t_info *info, int limit, int big, int small)
 
 	t_result = find_short_top(info, limit, big, small);
 	b_result = find_short_bottom(info, limit, big, small);
+	printf("t_result : %d \nb_result :%d\nbig : %d\nsmall : %d\n",t_result, b_result, info->s_arr[big], info->s_arr[small]);
+	if (!t_result)
+		return (b_result);
+	if (!b_result)
+		return (t_result);
 	if (info->find_min_t > info->find_min_b)
 		return (b_result);
 	else

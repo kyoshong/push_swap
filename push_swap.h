@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:48:51 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/27 19:56:10 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/28 18:50:18 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int		check_fin(t_info *info, int len);
 //push_swap
 void	push_swap(t_info *info, int len);
 void	sort_pivot(t_info *info, int len);
-void	sort_pivot2(t_info *info, int big, int small);
+void	sort_pivot2(t_info *info, int big, int small, int limit);
 void	div_pivot(t_info *info, int len);
 void	div_pivot_a(t_info *info, int len);
 void	div_pivot_b(t_info *info, int len);
@@ -84,8 +84,8 @@ int		max_val(int min, int count, int n, int result);
 int		find_short(t_info *info, int limit, int big, int small);
 
 //push_swap3
-void	move_top(t_info *info, int val, int rotate, int next_val);
-void	move_bottom(t_info *info, int val, int rotate, int next_val);
+int		move_top(t_info *info, int val, int rotate, int next_val);
+int		move_bottom(t_info *info, int val, int rotate, int next_val);
 void	find_one_val(t_info *info, int val);
 
 //split_atoi
