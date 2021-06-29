@@ -6,13 +6,13 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 14:35:36 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/26 19:32:52 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/30 04:07:50 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void		ft_isnumber(char **arg, int argc)
+void	ft_isnumber(char **arg, int argc)
 {
 	int i;
 	int j;
@@ -23,9 +23,9 @@ void		ft_isnumber(char **arg, int argc)
 		j = 0;
 		while (arg[i][j])
 		{
-			if (!(arg[i][j] >= '0' && arg[i][j] <= '9') && arg[i][j] != ' '
+			if (!(arg[i][j] >= '0' && arg[i][j] <= '9') && arg[i][j] != ' ' \
 			&& arg[i][j] != '-' && arg[i][j] != '+')
-				print_error("Error\n숫자가 아닙니다요");
+				print_error("Error\n");
 			j++;
 		}
 		i++;

@@ -6,21 +6,19 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:26:53 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/30 02:48:10 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/30 04:00:47 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-
 void	sorting_val(t_info *info, int big, int small, int limit)
 {
 	int i;
 
-	i = 0;
 	while (!empty_dq(info->b) && big <= small)
 	{
-		if(!(i = find_short(info, limit, big, small)))
+		if (!(i = find_short(info, limit, big, small)))
 			break ;
 		if (i == 1)
 			move_top(info, big++, 0, 0);
@@ -67,6 +65,7 @@ void	middle_sort_pivot(t_info *info, int len)
 {
 	int div;
 	int i;
+
 	if (top_dq(info->a) < bottom_dq(info->a))
 		swap_a(info);
 	div = len / 5;

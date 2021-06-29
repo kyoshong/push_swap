@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   div_pivot.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/30 03:41:05 by hyospark          #+#    #+#             */
+/*   Updated: 2021/06/30 03:42:10 by hyospark         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../push_swap.h"
 
@@ -74,7 +85,6 @@ void	div_pivot_c(t_info *info, int len, int num)
 	}
 }
 
-
 void	div_pivot(t_info *info, int len, int num)
 {
 	int div;
@@ -90,4 +100,3 @@ void	div_pivot(t_info *info, int len, int num)
 	}
 	div_pivot_a(info, len, num);
 }
-

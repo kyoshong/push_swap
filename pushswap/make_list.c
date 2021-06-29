@@ -1,13 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   make_list.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/30 03:40:53 by hyospark          #+#    #+#             */
+/*   Updated: 2021/06/30 04:00:22 by hyospark         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../push_swap.h"
 
 int		*make_list(char **argv, int len, int argc, t_info *info)
 {
-	char *combine_argv;
-	int i;
-	int j;
-	int z;
-	
+	char	*combine_argv;
+	int		i;
+	int		j;
+	int		z;
+
 	ft_isnumber(argv, argc);
 	if (!(combine_argv = (char *)malloc(sizeof(char) * (len + 1))))
 		return (NULL);
@@ -29,7 +40,7 @@ int		*get_list(int argc, char **argv, t_info *info)
 	int i;
 	int j;
 	int len;
-	
+
 	i = 1;
 	len = 0;
 	while (i < argc)

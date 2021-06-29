@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 21:34:41 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/29 00:12:52 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/30 03:47:55 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,9 @@ int		find_short_top(t_info *info, int limit, int big, int small)
 	int i;
 	int count;
 	int result;
-	
+
 	i = info->b->top;
 	count = 1;
-	info->find_min_t = 0;
 	result = 0;
 	while (!empty_dq(info->b) && info->b->arr[i] > info->s_arr[limit])
 	{
@@ -58,7 +57,6 @@ int		find_short_bottom(t_info *info, int limit, int big, int small)
 
 	j = 0;
 	count = 1;
-	info->find_min_b = 0;
 	result = 0;
 	while (!empty_dq(info->b) && info->b->arr[j] > info->s_arr[limit])
 	{
@@ -85,6 +83,8 @@ int		find_short(t_info *info, int limit, int big, int small)
 	int t_result;
 	int b_result;
 
+	info->find_min_b = 0;
+	info->find_min_t = 0;
 	t_result = find_short_top(info, limit, big, small);
 	b_result = find_short_bottom(info, limit, big, small);
 	if (!t_result)

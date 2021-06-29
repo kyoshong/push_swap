@@ -1,5 +1,5 @@
 NAME = libpushswap.a
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 SOURCE = pushswap/push_swap.c \
 		pushswap/find_route.c \
 		pushswap/pre_push_swap.c \
@@ -12,6 +12,8 @@ SOURCE = pushswap/push_swap.c \
 		utils/ft_split.c \
 		utils/exception.c \
 		utils/commands.c \
+		utils/commands2.c \
+		utils/commands3.c \
 		utils/handle_deque.c \
 		utils/handle_deque2.c \
 
@@ -23,6 +25,8 @@ OBJECT = push_swap.o \
 		pre_push_swap.o \
 		move_val.o \
 		commands.o \
+		commands2.o \
+		commands3.o \
 		quick_sort.o \
 		ft_atoi.o \
 		ft_split.o \

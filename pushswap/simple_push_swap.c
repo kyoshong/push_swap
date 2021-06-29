@@ -6,10 +6,9 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 14:24:02 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/28 02:21:09 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/30 03:56:50 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../push_swap.h"
 
@@ -68,12 +67,13 @@ void	five_push_swap(t_info *info, int len)
 	int i;
 
 	i = 0;
-	for (int i = 0; i < len; i++)
+	while (i < len)
 	{
 		if (top_dq(info->a) < info->s_arr[len / 2])
 			push_b(info);
 		else
 			rotate_a(info);
+		i++;
 	}
 	if (top_dq(info->b) < bottom_dq(info->b))
 		swap_b(info);
@@ -91,11 +91,11 @@ void	simple_push_swap(t_info *info, int len)
 	}
 	else if (len == 3)
 	{
-		while (!(info->s_arr[0] == bottom_dq(info->a) && 
-				info->s_arr[2] == top_dq(info->a)))
+		while (!(info->s_arr[0] == bottom_dq(info->a) && \
+		info->s_arr[2] == top_dq(info->a)))
 		{
-			if (info->s_arr[0] == top_dq(info->a) && 
-				info->s_arr[2] == bottom_dq(info->a))
+			if (info->s_arr[0] == top_dq(info->a) && \
+			info->s_arr[2] == bottom_dq(info->a))
 				rotate_a(info);
 			else if (top_dq(info->a) > bottom_dq(info->a))
 				rev_rotate_a(info);

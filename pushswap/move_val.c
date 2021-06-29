@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 14:12:02 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/29 14:41:20 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/30 03:44:42 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,12 @@
 int		move_top(t_info *info, int val, int rotate, int next_val)
 {
 	int tem;
-	
+
+	tem = val;
 	if (next_val && rotate)
 		tem = val - 1;
 	else if (next_val)
 		tem = val + 1;
-	else
-		tem = val;
 	while (1)
 	{
 		if (top_dq(info->b) == info->s_arr[tem])
@@ -45,13 +44,12 @@ int		move_top(t_info *info, int val, int rotate, int next_val)
 int		move_bottom(t_info *info, int val, int rotate, int next_val)
 {
 	int tem;
-	
+
+	tem = val;
 	if (next_val && rotate)
 		tem = val - 1;
 	else if (next_val)
 		tem = val + 1;
-	else
-		tem = val;
 	while (1)
 	{
 		if (top_dq(info->b) == info->s_arr[tem])
@@ -69,7 +67,6 @@ int		move_bottom(t_info *info, int val, int rotate, int next_val)
 	}
 	if (rotate)
 		rotate_a(info);
-
 	return (2);
 }
 

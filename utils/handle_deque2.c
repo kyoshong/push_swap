@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:26:41 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/26 22:53:13 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/30 04:09:00 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,6 @@ int		top_dq(t_dq *dq)
 int		bottom_dq(t_dq *dq)
 {
 	return (dq->arr[dq->bottom]);
-}
-
-int		at_dq(int val, t_dq *dq)
-{
-	return (dq->arr[val]);
 }
 
 int		size_dq(t_dq *dq)

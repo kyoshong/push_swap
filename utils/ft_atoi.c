@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 18:17:33 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/29 03:27:37 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/30 04:11:26 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,28 +33,28 @@ int		space_check(char b)
 int		ft_atoi(char *str, char *s, int *numarr)
 {
 	long	i;
-	long	minus;
+	long	m;
 	long	num;
 
-	minus = 1;
+	m = 1;
 	i = 0;
 	num = 0;
 	while (space_check(str[i]) == 1 && str[i] != '\0')
 		i++;
 	if (str[i] == '-')
-		minus = -1;
+		m = -1;
 	if (str[i] == '-' || str[i] == '+')
 		i++;
 	if (str[i] < '0' || str[i] > '9' || str[i] == '\0')
-		error_free("Error\natoi숫자가 아닙니다요", str, s, numarr);
+		error_free("Error\n", str, s, numarr);
 	while (str[i] >= '0' && str[i] <= '9' && str[i] != '\0')
 	{
 		num = (num * 10) + (str[i] - '0');
-		if ((num > 2147483647 && minus == 1) || (num > 2147483648 && minus == -1))
-			error_free("Error\n범위를 벗어났어요", str, s, numarr);
+		if ((num > 2147483647 && m == 1) || (num > 2147483648 && m == -1))
+			error_free("Error\n", str, s, numarr);
 		i++;
 	}
 	if (str[i] != '\0')
-		error_free("Error\n뒤에 이상한 문자가 붙어있다!", str, s, numarr);
-	return (num * minus);
+		error_free("Error\n", str, s, numarr);
+	return (num * m);
 }

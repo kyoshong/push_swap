@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:49:30 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/29 02:58:38 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/30 04:07:37 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	init_a(int size, t_info *info)
 	i = 0;
 	while (i < size)
 	{
-		arr[i] = info->s_arr[size - i -1];
+		arr[i] = info->s_arr[size - i - 1];
 		i++;
 	}
 	arr[size] = 0;
@@ -74,7 +74,7 @@ void	push_top_dq(int val, t_dq *dq)
 void	push_bottom_dq(int val, t_dq *dq)
 {
 	int i;
-	
+
 	if (empty_dq(dq))
 		push_top_dq(val, dq);
 	else

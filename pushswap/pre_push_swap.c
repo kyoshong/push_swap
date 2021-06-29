@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:49:01 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/30 03:09:58 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/30 03:57:42 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	free_all(t_info *info)
 void	pre_push_swap(int argc, char **argv)
 {
 	t_info *info;
-	
+
 	if (!(info = (t_info *)malloc(sizeof(*info))))
 		return ;
 	info->s_arr = get_list(argc, argv, info);

@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:45:25 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/27 15:22:15 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/30 04:13:46 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	word_count(char *s, char c)
 {
-	int	i;
-	int	cnt;
+	int		i;
+	int		cnt;
 
 	i = 0;
 	cnt = 0;
@@ -47,19 +47,20 @@ static char	*word_make(char *s, int j, int word_len)
 	return (word);
 }
 
-void	check_dupl(int *numarr, int i, char *s, char *tem_str)
+void		check_dupl(int *numarr, int i, char *s, char *tem_str)
 {
-	int j = 0;
-	
+	int		j;
+
+	j = 0;
 	while (j < i)
 	{
 		if (numarr[j] == numarr[i])
-			error_free("Error\n중복된 숫자입니다.", tem_str, s, numarr);
+			error_free("Error\n", tem_str, s, numarr);
 		j++;
 	}
 }
 
-int		*split2(char *s, char c, int word_num, int i)
+int			*split2(char *s, char c, int word_num, int i)
 {
 	int		j;
 	int		word_len;
@@ -85,11 +86,10 @@ int		*split2(char *s, char c, int word_num, int i)
 		free(tem_str);
 		i++;
 	}
-	free(s);
 	return (numarr);
 }
 
-int		*ft_split_atoi(char *s, char c, t_info *info)
+int			*ft_split_atoi(char *s, char c, t_info *info)
 {
 	int		word_num;
 	int		*numarr;
@@ -99,5 +99,6 @@ int		*ft_split_atoi(char *s, char c, t_info *info)
 	word_num = word_count(s, c);
 	info->s_len = word_num;
 	numarr = split2(s, c, word_num, 0);
+	free(s);
 	return (numarr);
 }

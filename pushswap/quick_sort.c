@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:26:59 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/27 15:04:14 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/30 03:50:00 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	swap_arr(t_info *info, int a, int b)
 {
 	int tem;
-	
+
 	tem = info->s_arr[a];
 	info->s_arr[a] = info->s_arr[b];
 	info->s_arr[b] = tem;
@@ -46,7 +46,7 @@ void	quick_sort(t_info *info, int l, int r)
 	if (l < r)
 	{
 		i = partition(info, l, r);
-		quick_sort(info, l , i - 1);
-		quick_sort(info, i + 1 , r);
+		quick_sort(info, l, i - 1);
+		quick_sort(info, i + 1, r);
 	}
 }
