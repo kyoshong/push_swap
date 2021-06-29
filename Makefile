@@ -6,6 +6,8 @@ SOURCE = pushswap/push_swap.c \
 		pushswap/move_val.c \
 		pushswap/quick_sort.c \
 		pushswap/simple_push_swap.c \
+		pushswap/div_pivot.c \
+		push_swap/make_list.c \
 		utils/ft_atoi.c \
 		utils/ft_split.c \
 		utils/exception.c \
@@ -28,6 +30,8 @@ OBJECT = push_swap.o \
 		handle_deque.o \
 		handle_deque2.o \
 		simple_push_swap.o \
+		div_pivot.o \
+		make_list.o \
 
 $(NAME): $(OBJECT)
 	ar	rcs $(NAME) $(OBJECT)

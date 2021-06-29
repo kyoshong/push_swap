@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:48:51 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/28 23:23:14 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/30 03:03:05 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,9 @@ typedef	struct	s_info
 	int		find_min_b;
 }				t_info;
 
-//main
-
-int		main(int argc, char *argv[]);
-
 //pre_push_swap
+int		avail_arr(t_info *info);
+void	free_all(t_info *info);
 int		get_len(int *arr);
 int		*make_list(char **argv, int len, int argc, t_info *info);
 int		*get_list(int argc, char **argv, t_info *info);
@@ -71,11 +69,9 @@ int		check_fin(t_info *info, int len);
 
 //push_swap
 void	push_swap(t_info *info, int len);
-void	sort_pivot(t_info *info, int len);
+void	sort_pivot(t_info *info, int len, int size);
 void	sort_pivot2(t_info *info, int big, int small, int limit);
-void	div_pivot(t_info *info, int len);
-void	div_pivot_a(t_info *info, int len);
-void	div_pivot_b(t_info *info, int len);
+void	div_pivot(t_info *info, int len, int num);
 
 //push_swap2
 int		find_short_bottom(t_info *info, int limit, int big, int small);
