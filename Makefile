@@ -7,7 +7,7 @@ SOURCE = pushswap/push_swap.c \
 		pushswap/quick_sort.c \
 		pushswap/simple_push_swap.c \
 		pushswap/div_pivot.c \
-		push_swap/make_list.c \
+		pushswap/make_list.c \
 		utils/ft_atoi.c \
 		utils/ft_split.c \
 		utils/exception.c \
