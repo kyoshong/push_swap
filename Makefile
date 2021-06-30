@@ -15,7 +15,7 @@ SOURCE = pushswap/push_swap.c \
 		utils/commands2.c \
 		utils/commands3.c \
 		utils/handle_deque.c \
-		utils/handle_deque2.c \
+		utils/handle_deque2.c
 
 LIB = -L. -lpushswap
 MAIN = pushswap/main.c
@@ -35,15 +35,15 @@ OBJECT = push_swap.o \
 		handle_deque2.o \
 		simple_push_swap.o \
 		div_pivot.o \
-		make_list.o \
+		make_list.o
 
 $(NAME): $(OBJECT)
 	ar	rcs $(NAME) $(OBJECT)
+	gcc $(MAIN) $(CFLAGS) $(LIB) -o $(OUT)
 $(OBJECT): $(SOURCE)
 	gcc $(CFLAGS) -c $(SOURCE)
 
 all : $(NAME)
-	gcc $(MAIN) $(CFLAGS) $(LIB) -o $(OUT)
 clean:
 	@rm -f $(OBJECT)
 fclean: clean
