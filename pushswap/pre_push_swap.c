@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:49:01 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/30 03:57:42 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/06/30 14:07:56 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,10 @@ int		avail_arr(t_info *info)
 
 void	free_all(t_info *info)
 {
-	free(info->s_arr);
 	free(info->a->arr);
 	free(info->a);
 	free(info->b->arr);
 	free(info->b);
-	free(info);
 }
 
 void	pre_push_swap(int argc, char **argv)
@@ -52,6 +50,8 @@ void	pre_push_swap(int argc, char **argv)
 		init_b(info->s_len, info);
 		quick_sort(info, 0, info->s_len - 1);
 		push_swap(info, info->s_len);
+		free_all(info);
 	}
-	free_all(info);
+	free(info->s_arr);
+	free(info);
 }
