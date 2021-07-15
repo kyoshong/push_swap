@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:48:51 by hyospark          #+#    #+#             */
-/*   Updated: 2021/06/30 04:15:39 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/07/15 14:27:55 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,7 @@ void			four_push_swap(t_info *info);
 int				check_next_val(t_info *info, int len);
 int				check_fin(t_info *info, int len);
 void			push_swap(t_info *info, int len);
-void			middle_sort_pivot(t_info *info, int len);
-void			large_sort_pivot(t_info *info, int len);
+void			large_sort_pivot(t_info *info, int len, int size);
 void			sorting_val(t_info *info, int big, int small, int limit);
 void			div_pivot(t_info *info, int len, int num);
 void			div_pivot_c(t_info *info, int len, int num);

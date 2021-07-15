@@ -6,7 +6,7 @@
 /*   By: hyospark <hyospark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:26:53 by hyospark          #+#    #+#             */
-/*   Updated: 2021/07/13 15:35:58 by hyospark         ###   ########.fr       */
+/*   Updated: 2021/07/15 14:27:34 by hyospark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,43 +52,23 @@ void	sorting_val(t_info *info, int big, int small, int limit)
 	rev_rotate_pivot(info, big, small, limit);
 }
 
-void	large_sort_pivot(t_info *info, int len)
+void	large_sort_pivot(t_info *info, int len, int size)
 {
 	int div;
 	int i;
 
 	if (top_dq(info->a) < bottom_dq(info->a))
 		swap_a(info);
-	div = len / 8;
+	div = len / size;
 	sorting_val(info, 1, div - 1, div);
 	sorting_val(info, div + 1, div * 2, (div * 2) + 1);
 	i = 2;
-	while (i < 8)
+	while (i < size)
 	{
 		sorting_val(info, (div * (i - 1)) + 1, div * i, (div * i) + 1);
 		i++;
 	}
-	sorting_val(info, (div * 7) + 1, len - 1, len);
-	push_a(info);
-}
-
-void	middle_sort_pivot(t_info *info, int len)
-{
-	int div;
-	int i;
-
-	if (top_dq(info->a) < bottom_dq(info->a))
-		swap_a(info);
-	div = len / 5;
-	sorting_val(info, 1, div - 1, div);
-	sorting_val(info, div + 1, div * 2, (div * 2) + 1);
-	i = 0;
-	while (i < 5)
-	{
-		sorting_val(info, (div * (i - 1)) + 1, div * i, (div * i) + 1);
-		i++;
-	}
-	sorting_val(info, (div * 4) + 1, len - 1, len);
+	sorting_val(info, (div * (size - 1)) + 1, len - 1, len);
 	push_a(info);
 }
 
@@ -101,12 +81,12 @@ void	push_swap(t_info *info, int len)
 		if (200 < len)
 		{
 			div_pivot(info, len - 1, 8);
-			large_sort_pivot(info, len - 1);
+			large_sort_pivot(info, len - 1, 8);
 		}
 		else
 		{
 			div_pivot(info, len - 1, 5);
-			middle_sort_pivot(info, len - 1);
+			large_sort_pivot(info, len - 1, 5);
 		}
 	}
 }
